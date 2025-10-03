@@ -1,9 +1,9 @@
 install:
-    pip install --upgrade pip
-    pip install -r requirements.txt
+	pip install --upgrade pip      # This line is indented with one Tab
+	pip install -r requirements.txt # This line is also indented with one Tab
 
 train:
-    python3 train.py
+	python3 train.py               # Indented with one Tab
 
 eval:
     echo "## Model Metrics" > report.md
