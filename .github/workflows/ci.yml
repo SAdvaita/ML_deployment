@@ -1,0 +1,47 @@
+[cite_start]name: Drug Classification CI-CD # Name of the workflow 
+
+# Triggers the workflow on push to the main branch [cite: 466]
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    # The workflow will run on the latest Ubuntu (Linux) version [cite: 467]
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Sets up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # 3. Install dependencies using the Makefile command [cite: 469]
+      - name: Install Dependencies
+        run: make install
+
+      # 4. Train the model using the Makefile command
+      - name: Train Model
+        run: make train
+
+      # 5. Evaluate the model and create a report
+      - name: Evaluate Model
+        run: make eval
+
+      # 6. Create or update a branch with the new model and results
+      - name: Update Model and Results Branch
+        run: make update-branch
+
+      # 7. Deploy to Hugging Face Spaces (only runs on pushes to main)
+      - name: Deploy to Hugging Face
+        if: github.ref == 'refs/heads/main'
+        env:
+          # Use the secret you stored earlier
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: make deploy
