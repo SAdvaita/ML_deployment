@@ -1,0 +1,6 @@
+scikit-learn
+python
+pandas
+scikit-learn
+matplotlib
+joblib
