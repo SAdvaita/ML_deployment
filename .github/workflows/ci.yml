@@ -1,4 +1,4 @@
-[cite_start]name: Drug Classification CI-CD # Name of the workflow 
+name: Drug Classification CI-CD # Name of the workflow
 
 # Triggers the workflow on push to the main branch [cite: 466]
 on:
