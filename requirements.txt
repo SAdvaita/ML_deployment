@@ -5,5 +5,4 @@ pandas
 matplotlib
 gradio
 huggingface_hub
-iterative-cml
 dvc-cml
