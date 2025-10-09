@@ -26,10 +26,10 @@ hf-login:
 	hf auth login --token $(HF_TOKEN) --add-to-git-credential
 
 push-hub:
-	# Updated with your correct Hugging Face Space ID
-	hf upload AdvaitaS/MentalHealthInsights ./app --repo-type=space --commit-message="Sync App files"
-	hf upload AdvaitaS/MentalHealthInsights ./model --repo-type=space --commit-message="Sync Model"
-	hf upload AdvaitaS/MentalHealthInsights ./results --repo-type=space --commit-message="Sync Results"
+	# Added '.' to specify uploading to the root directory
+	hf upload AdvaitaS/MentalHealthInsights ./app . --repo-type=space --commit-message="Sync App files"
+	hf upload AdvaitaS/MentalHealthInsights ./model . --repo-type=space --commit-message="Sync Model"
+	hf upload AdvaitaS/MentalHealthInsights ./results . --repo-type=space --commit-message="Sync Results"
 
 deploy:
 	make hf-login
