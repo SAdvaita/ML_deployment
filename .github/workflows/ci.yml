@@ -28,6 +28,8 @@ jobs:
         uses: iterative/setup-cml@v1
 
       - name: Evaluate Model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
 
       - name: Update Model and Results Branch
