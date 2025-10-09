@@ -13,10 +13,6 @@ jobs:
 
     steps:
       - name: Checkout Repository
-      # ...the rest of your steps continue here
-
-    steps:
-      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set up Python
