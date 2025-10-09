@@ -23,15 +23,13 @@ hf-login:
 	git pull origin update || true
 	git switch update || true
 	pip install -U "huggingface_hub[cli]"
-	# Updated to modern 'hf auth login' command
 	hf auth login --token $(HF_TOKEN) --add-to-git-credential
 
 push-hub:
-	# IMPORTANT: Replace "Your-Username/Your-Space-Name" with your actual repo ID
-	# Updated to modern 'hf upload' command
-	hf upload Your-Username/Your-Space-Name ./app --repo-type=space --commit-message="Sync App files"
-	hf upload Your-Username/Your-Space-Name ./model --repo-type=space --commit-message="Sync Model"
-	hf upload Your-Username/Your-Space-Name ./results --repo-type=space --commit-message="Sync Results"
+	# Updated with your correct Hugging Face Space ID
+	hf upload AdvaitaS/MentalHealthInsights ./app --repo-type=space --commit-message="Sync App files"
+	hf upload AdvaitaS/MentalHealthInsights ./model --repo-type=space --commit-message="Sync Model"
+	hf upload AdvaitaS/MentalHealthInsights ./results --repo-type=space --commit-message="Sync Results"
 
 deploy:
 	make hf-login
