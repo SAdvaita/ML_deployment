@@ -7,9 +7,9 @@ train:
 
 eval:
 	echo "## Model Metrics" > report.md
-	cat result/metrics.txt >> report.md
+	cat results/metrics.txt >> report.md
 	echo "\n## Confusion Matrix Plot" >> report.md
-	echo "![Confusion Matrix](./result/model_results.png)" >> report.md
+	echo "![Confusion Matrix](./results/model_results.png)" >> report.md
 	cml comment create report.md
 
 update-branch:
@@ -26,9 +26,9 @@ hf-login:
 	huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub:
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./App --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./Model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./Results --repo-type=space --commit-message="Sync Results"
+	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./app --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./model --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./results --repo-type=space --commit-message="Sync Results"
 
 deploy:
 	make hf-login
