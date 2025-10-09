@@ -7,7 +7,7 @@ train:
 
 eval:
 	echo "## Model Metrics" > report.md
-	cat Result/metrics.txt >> report.md
+	cat result/metrics.txt >> report.md
 	echo "\n## Confusion Matrix Plot" >> report.md
 	echo "![Confusion Matrix](./result/model_results.png)" >> report.md
 	cml comment create report.md
@@ -15,7 +15,7 @@ eval:
 update-branch:
 	git config --global user.name $(SAdvaita)
 	git config --global user.email $(adhu1926@gmail.com)
-	git add Model Results
+	git add model results
 	git commit -m "Update model and results"
 	git push --force origin HEAD:update
 
