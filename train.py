@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt # type: ignore
 import joblib # type: ignore
 
 # Ensure Results folder exists
-os.makedirs("Results", exist_ok=True)
+os.makedirs("results", exist_ok=True)
 
 # Load and shuffle dataset
 drug_df = pd.read_csv("data/drug200.csv")
