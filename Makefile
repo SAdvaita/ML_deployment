@@ -13,9 +13,9 @@ eval:
 	cml comment create report.md
 
 update-branch:
-	git config --global user.name $(SAdvaita)
-	git config --global user.email $(adhu1926@gmail.com)
-	git add model results
+	git config --global user.name "SAdvaita"
+	git config --global user.email "adhu1926@gmail.com"
+	git add Model Results
 	git commit -m "Update model and results"
 	git push --force origin HEAD:update
 
