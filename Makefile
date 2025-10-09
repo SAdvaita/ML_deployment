@@ -23,12 +23,15 @@ hf-login:
 	git pull origin update || true
 	git switch update || true
 	pip install -U "huggingface_hub[cli]"
-	huggingface-cli login --token $(HF_TOKEN) --add-to-git-credential
+	# Updated to modern 'hf auth login' command
+	hf auth login --token $(HF_TOKEN) --add-to-git-credential
 
 push-hub:
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./app --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload DRGJ2025/DRUG_CLASSIFY ./results --repo-type=space --commit-message="Sync Results"
+	# IMPORTANT: Replace "Your-Username/Your-Space-Name" with your actual repo ID
+	# Updated to modern 'hf upload' command
+	hf upload Your-Username/Your-Space-Name ./app --repo-type=space --commit-message="Sync App files"
+	hf upload Your-Username/Your-Space-Name ./model --repo-type=space --commit-message="Sync Model"
+	hf upload Your-Username/Your-Space-Name ./results --repo-type=space --commit-message="Sync Results"
 
 deploy:
 	make hf-login
