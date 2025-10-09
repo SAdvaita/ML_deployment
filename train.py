@@ -52,18 +52,18 @@ f1 = f1_score(y_test, predictions, average="macro")
 print("Accuracy:", str(round(accuracy, 2) * 100) + "%", "F1:", round(f1, 2))
 
 # Save metrics
-with open("Results/metrics.txt", "w") as outfile:
+with open("results/metrics.txt", "w") as outfile:
     outfile.write(f"Accuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}.")
 
 # Confusion matrix
 cm = confusion_matrix(y_test, predictions, labels=pipe.classes_)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=pipe.classes_)
 disp.plot()
-plt.savefig("Results/model_results.png", dpi=120)
+plt.savefig("results/model_results.png", dpi=120)
 plt.close()
 
 
 
 
-joblib.dump(pipe, "Model/drug_pipeline.joblib")
-joblib.load("Model/drug_pipeline.joblib")
+joblib.dump(pipe, "model/drug_pipeline.joblib")
+joblib.load("model/drug_pipeline.joblib")
